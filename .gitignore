@@ -3,3 +3,7 @@ node_modules/
 
 # Nuxt.js build / generate output
 dist
+
+# Ignore dotenv environment variables and filess
+.env
+.env.test
