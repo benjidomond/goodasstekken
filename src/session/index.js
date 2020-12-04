@@ -1,3 +1,4 @@
 import AuthUserContext from "./context.js";
 import withAuthentication from "./withAuthentication.js";
-export { AuthUserContext, withAuthentication };
+import withAuthorization from "./withAuthorization.js";
+export { AuthUserContext, withAuthentication, withAuthorization };
