@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 import { withFirebase } from "../firebase";
 import * as ROUTES from '../constants/routes.js';
+import AuthUserContext from './context.js';
 
 const withAuthorization = condition => Component => {
     class WithAuthorization extends React.Component {
@@ -18,7 +19,13 @@ const withAuthorization = condition => Component => {
             this.listener();
         }
         render(){
-            return <Component {...this.props} />;
+            return (
+                <AuthUserContext.Consumer>
+                    {authUser =>
+                        condition(authUser) ? <Component {...this.props} /> : null
+                    }
+                </AuthUserContext.Consumer>
+            );
         }
     }
     const baseAuth = withFirebase(WithAuthorization);

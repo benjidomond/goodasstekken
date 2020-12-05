@@ -1,0 +1,14 @@
+Introducing Firebase Realtime Database lets you keep track of user entities yourself - this lets you associate things such as messages, invoices, books, etc. to users while Firebase handles the sensitive data. You can also migrate Firebase Realtime Database to Cloud Firestore.
+
+Firebase manages user authentication but you handle user entities.
+
+Note: You can use indexes for faster queries
+
+Your realtime database is currently set to TEST mode, allowing all reads and writes during development.
+
+Implementing Firebase Realtime Database
+---
+Initialize database API in Firebase class constructor (just like the authentication API)
+Extend class interface by adding User API logic that lets you retrieve references to individual users via UserID as well as references to all users.
+    Firebase paths follow REST philosophy where every user is associated with a URI.
+
