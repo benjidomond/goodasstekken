@@ -12,3 +12,43 @@ Initialize database API in Firebase class constructor (just like the authenticat
 Extend class interface by adding User API logic that lets you retrieve references to individual users via UserID as well as references to all users.
     Firebase paths follow REST philosophy where every user is associated with a URI.
 
+---
+Firebase Realtime Database Info:
+    Data stored as JSON and synced realtime
+    After you finish testing your app, read the Firebase Realtime Database Rules and create your own rules
+    Can view database in Firebase console
+    
+
+Read or write data from a database:
+    To do this, you need an instance of firebase.database.reference (async listener)
+        You attach the listener and it's ran once for initial data and again anytime data changes
+    set() lets you save and replace data at a specific reference
+    on() or once() to read data at a path and listen for changes
+        once() lets you snapshot data once w/o listening to changes
+    value event lets you read and listen for any changes to any content in a path
+        Retrieve daa in the snapshot in the val() method
+    Updating and deleting data done w/ update() and remove()
+    Data is written locally before being written to the database, allowing for database writes to happen after connection is regained post-loss.
+
+Good Ass Tekken User Management
+---
+    Goal: Creating and getting users from Firebase Realtime Database
+        Add user creation to  signup so users can be created and saved after signup is successful
+            Done by adding a first .then() promise which creates the user in your firebase database before the second .then()
+            callback which sets the state back to the initial states and reroutes to home page.
+                What this now does is it creates a user in firebase's inteernal auth database
+                and if this is successful, it creates a user in firebase's realtime Database
+                    uses firebase class reference by providing the uid of the user from the auth database
+                    basically, it uses the auth user database ID to create a user in the realtime database
+        DO NOT store sensitive user info such as passwords, etc. in your realtime database
+
+Admin component a good place for logic to retrieve info from all users
+Retrieve all the users in admin componentDidMount()
+Needs to be a class component to keep track of users and loading
+    users empty object
+    loading set to false in initial state but changed to true in first line of componentDidMount which makes sense
+    Because the users are objects instead of lists when retrieved from Firebase Realtime DB,
+    it's a lot more convenient to convert the users object into a state array
+    A LOT easier to use arrays than objects to display information.
+    YOU'RE MAKING AN ARRAY OF OBJECTS!! OHHHH.
+Remove the listener when the component unmounts
