@@ -69,3 +69,10 @@ When user uploads the match, what happens?
     Where does the user get redirected to, if they even do? How are they notified of a successful upload?
 Searching
     How do users search for a match?
+
+
+Scalable Database:
+You shouldn't add columns to tables willy-nilly and it requires planning but if your requirements change or you forget something then you should add the column.
+Never adding a column isn't good advice and is unrealistic.
+    Goal is to fix mistakes and keep database normalized.
+    Requires testing and planning!
