@@ -52,3 +52,20 @@ Needs to be a class component to keep track of users and loading
     A LOT easier to use arrays than objects to display information.
     YOU'RE MAKING AN ARRAY OF OBJECTS!! OHHHH.
 Remove the listener when the component unmounts
+
+--
+So the million dollar question of the day is...where do I take the development of this application?
+I think that for starters, I should define the baseline MVP.
+MVP for Good Ass Tekken:
+
+User sign up with captcha. The intention of this captcha is used to stop bots.
+After user signs up, they have the freedom to be able to upload matches onto the website. Other features will be TBD of course, but I think that the ability to simply just Add Matches is
+the most important thing to focus on.
+This means that I would have to create a basic form which I can use to add matches with the ability of having it support scalable features. For example, say if I want users to be able to
+toggle infinite stage and/or add other specifications to the app in the future. How difficult would it be for me to scale that and how would it influence search results? Would it be easiest for me to include everything
+that I want from the jump?
+When user uploads the match, what happens?
+    It should be able to be searched for immediately
+    Where does the user get redirected to, if they even do? How are they notified of a successful upload?
+Searching
+    How do users search for a match?
