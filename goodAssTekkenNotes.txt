@@ -59,20 +59,28 @@ I think that for starters, I should define the baseline MVP.
 MVP for Good Ass Tekken:
 
 User sign up with captcha. The intention of this captcha is used to stop bots.
+Alright, so now we will look into reCAPTCHA.
+    reCAPTCHA protects sites from spam and abuse from bots while allowing human usage!
+    Can be added to your site w/ firebase hosting + cloud functions for firebase.
+
 After user signs up, they have the freedom to be able to upload matches onto the website. Other features will be TBD of course, but I think that the ability to simply just Add Matches is
 the most important thing to focus on.
-This means that I would have to create a basic form which I can use to add matches with the ability of having it support scalable features. For example, say if I want users to be able to
-toggle infinite stage and/or add other specifications to the app in the future. How difficult would it be for me to scale that and how would it influence search results? Would it be easiest for me to include everything
-that I want from the jump?
+This means that I would have to create a basic form which I can use to add matches.
+What search options do I use?
+    Match Conditions: Tournament / Casuals / Deathmatch
+    Event Name
+    Characters
+    Winning Characters
+    Players
+    Winning Player
+    Stage Conditions: Walls / Infinite / Both
+
 When user uploads the match, what happens?
     It should be able to be searched for immediately
+        Okay.
     Where does the user get redirected to, if they even do? How are they notified of a successful upload?
+        Notification that gives them the option to either:
+            1. Submit another video
+            2. Return to homepage
 Searching
     How do users search for a match?
-
-
-Scalable Database:
-You shouldn't add columns to tables willy-nilly and it requires planning but if your requirements change or you forget something then you should add the column.
-Never adding a column isn't good advice and is unrealistic.
-    Goal is to fix mistakes and keep database normalized.
-    Requires testing and planning!
