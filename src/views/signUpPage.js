@@ -27,13 +27,17 @@ class SignUpFormBase extends Component {
         // Object destructuring, using username etc. to reference these state values
         const { username, email, passwordOne } = this.state;
         this.props.firebase.doCreateUserWithEmailAndPassword(email, passwordOne)
-        .then(authUser => {
-            return this.props.firebase
-                .user(authUser.user.uid)
-                .set({
-                    username,
-                    email
-                });
+        .then(() => {
+            // return this.props.firebase
+            //     .user(authUser.user.uid)
+            //     .set({
+            //         username,
+            //         email
+            //     });
+            return this.props.firebase.fsUser.add({
+                username: username,
+                email: email
+            })
         })
         .then(() => {
             this.setState({...INITIAL_STATE});

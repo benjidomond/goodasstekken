@@ -1,6 +1,7 @@
 import app from 'firebase/app';
 import "firebase/auth";
 import "firebase/database";
+import "firebase/firestore";
 
 const config = {
     apiKey: process.env.FIREBASE_APP_API_KEY,
@@ -18,6 +19,8 @@ class Firebase {
         app.initializeApp(config);
         this.auth = app.auth();
         this.db = app.database();
+        //this.fs = app.firestore();
+        // "ProjectID not provided in firebase.initializeapp"
     }
     // Authentication API
     doCreateUserWithEmailAndPassword = (email, password) =>
@@ -30,6 +33,8 @@ class Firebase {
     // User API
     user = (uid) => this.db.ref(`users/${uid}`);
     users = () => this.db.ref('users');
+    //Firestore Users API
+    fsUser = () => this.db.collection('users');
 }
 
 export default Firebase;

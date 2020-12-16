@@ -62,6 +62,7 @@ User sign up with captcha. The intention of this captcha is used to stop bots.
 Alright, so now we will look into reCAPTCHA.
     reCAPTCHA protects sites from spam and abuse from bots while allowing human usage!
     Can be added to your site w/ firebase hosting + cloud functions for firebase.
+    firebase hosting is used to serve content and cloud functions for firebase validate the recaptcha response
 
 After user signs up, they have the freedom to be able to upload matches onto the website. Other features will be TBD of course, but I think that the ability to simply just Add Matches is
 the most important thing to focus on.
@@ -75,6 +76,20 @@ What search options do I use?
     Winning Player
     Stage Conditions: Walls / Infinite / Both
 
+    https://www.robinwieruch.de/react-firebase-realtime-database - Realtime DB setup
+    https://www.robinwieruch.de/react-firebase-authorization-roles-permissions - Auth permissions
+    https://www.robinwieruch.de/react-firebase-auth-persistence - Auth persistence
+    Use firebase realtime DB or cloud firestore? What do you want?
+        Firestore lets you store and sync app data to the cloud
+        Realtime DB is just a big json tree while firestore is a document model db that stores your data in objects called documents
+        firestore makes it a lot easier to search across multiple fields
+        firestore scales easier if your app gets popular
+        Easier for one time fetch queries
+        firestore pricing driven by the # of reads and writes rather than the amount of data that's downloaded or stored
+        so i think it's best to use firestore for my project.
+
+
+
 When user uploads the match, what happens?
     It should be able to be searched for immediately
         Okay.
@@ -84,3 +99,30 @@ When user uploads the match, what happens?
             2. Return to homepage
 Searching
     How do users search for a match?
+
+
+To-do:
+initialize firestore DB in your firebase class
+Make sure you start in test mode then change the permissions when the app is done!
+https://firebase.google.com/docs/firestore/data-model
+Firestore is a document oriented database, meaning there are no tables and rows. Data is stored in documents that are organized into collections.
+So a collection is the parent then and the document are the children entities. Documents can have subcollections or nested objects.
+Collections and documents are created implicitly - if either does not exist then cloud firestore creates it.
+Document is the unit of storage
+
+Best practice to use the same fields and data types across multiple documents
+Name of documents are unique - can provide own userIDs or let firestore create them for you automatically
+When you create the first document in a collection, the collection is created.
+When you delete all the documents in a collection, the collection gets deleted.
+
+Can create references to collections or documents!
+With collection references you can query documents in a collection
+With document references you can read or write an individual document
+Subcollection - a collection associated w/ a specific document
+Deleting documennts do not delete subcollections. You gotta delete those manually!
+
+After you create the Cloud Firestore database and the collection you'd like to populate:
+
+So apparently when it comes to retrieving the firestore database URL - it's not the direct DB URL but is the same URL that's under firebase realtime DB
+React with Cloud Firestore
+https://www.robinwieruch.de/react-firestore-tutorial

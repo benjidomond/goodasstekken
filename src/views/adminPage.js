@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withFirebase } from "../firebase";
 
 class AdminPage extends Component {
     constructor(props){
